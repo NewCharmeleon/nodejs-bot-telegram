@@ -1,0 +1,66 @@
+Guia Bot Telegram con Node.js
+FrontEnd Js-Backend Node.js
+1-Creamos cuenta en Telegram si no teniamos
+es util usar Telegram Desktop
+2-instalaremos el Bot BotFather que nos ayuda a crear
+nuestro propio Bot, iniciamos con Start y nos sale
+un menu con opciones
+-usaremos el comando /newbot (la / indica que es un comando)
+nos pedira el nombre para el bot, luego un pseudonimo.
+-nos da un enlace para iniciar el Bot, enlace para menu de 
+opciones y el enlace para el API de Telegram
+(se puede usar de 0 el API o usar librerias como Telegraf para Node.js y mas en bots/samples)
+Telegraf sirve para Js y Ts proporcionandonos codigos de uso
+se instalara con npm i telegraph en Node.js
+para conectarnos usaremos el Token que nos brinda BotFather
+y lo podemos guardar en .env
+2-Creamos el archivo bot.js
+3-Creamos el Proyecto de Node.js en Terminal
+npm init -y
+4-Instalamos el modulo Telegraf con npm i telegraf
+5-Instalamos el modulo dotenv para tener el Token en .env
+6-En bot.js importamos el modulo como Clase Telegraf
+//importamos las variables de entorno
+require('dotenv').config();
+//Importamos como Clase el modulo de Telegraf
+const Telegraf = require('telegraf')
+//Instanciamos el Bot con el Token que nos brindo BotFather
+const bot = new Telegraf(process.env.TOKEN)
+console.log('>>>Bot is connected and ready to listen')
+
+//creamos la funcion start tomando el contex ctx
+bot.start((ctx) => {
+    //usamos las funciones o metodos del Chat
+    ctx.reply('Welcome');
+})
+//para lanzar el bot y que se mantenga escuchando en consola
+bot.launch()
+//esto captura el "/start" enviado en la aplicacion cuando charlamos 
+con el Bot y nos responde segun la funcion bot.start en el chat
+//con node bot.js en consola lo lanzamos 
+7-Crearemos mas comandos /help y /setting
+8-//Crearemos nuestro comando personalizado
+bot.command(['myCommand', 'Mycommand', 'MYCOMMAND'], (ctx) =>{
+    ctx.reply('my custom command');
+})//agregamos un arreglo con opciones para tomar variaciones del comando solicitado
+9-instalaremos el modulo nodemon para no reiniciar ante cambios la app
+npm i nodemon -D como desarrollo ya que el Bot no lo necesita en produccion
+-en package.json creamos el script de inicio
+"scripts": {
+    "dev": "nodemon bot.js"
+     },
+//ahora lo ejecutamos en consola npm run dev
+//podemos escuchar con bot.hears cuando alguien escriba algo en especifico
+//con bot.on cuando escriba texto o stickers, etc
+10-Ctx es un objeto con todas las propiedades y metodos de Telegram
+ /Eliminar Usuario, eliminar archivo, banear un usuario, darle titulo al chat, etc
+**que tipo de contenido tiene un mensaje con updateSubTyper: ['text']
+--Los Bots pueden utilizar API d eInstagram, Facebook, Ghyphi
+Metodos
+seccion Telegraf
+seccion Telegram, aca podemos enviar mensajes, podemos manipular
+el contenido que el usuario envie en el chat
+vamos a tener que ser mas descriptivos en el codigo
+-si queremos responder mensajes como  telegram.sendMessage(chatId, text, [extra)) = Promise
+necesitamos mas datos o podemos usar la abstraccion de context.reply para no interactuar
+demasiado con la API

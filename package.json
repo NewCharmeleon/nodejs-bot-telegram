@@ -1,0 +1,19 @@
+{
+  "name": "node-bot-telegram",
+  "version": "1.0.0",
+  "description": "*PORT, this is server port. by default is 3000\r *GRAPHQL_NODEJS_MONGODB_HOST=\" \", this is the Host´s BBDD\r *GRAPHQL_NODEJS_MONGODB_DATABASE=\" \", this is the BBDD",
+  "main": "bot.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "telegraf": "^3.38.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "scripts": {
+    "dev": "nodemon bot.js"
+     },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
