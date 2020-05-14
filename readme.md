@@ -1,6 +1,4 @@
-#GRAPHQL-NODE.JS
+#BOT TELEGRAM CON INTERACCIONES CONFIGURADAS CON NODE.JS
 
 ##Enviroment variables
-*PORT, this is server port. by default is 3000
-*GRAPHQL_NODEJS_MONGODB_HOST=" ", this is the Host´s BBDD
-*GRAPHQL_NODEJS_MONGODB_DATABASE=" ", this is the BBDD
+*TOKEN, this is token given for Telegram Client
